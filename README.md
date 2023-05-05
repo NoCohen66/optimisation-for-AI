@@ -1,14 +1,21 @@
 
 # Picross
 
-## Description of the problem
+# 📚 Table of contents
+-  [⚙️ Description of the problem](#des)
+-  [🛠️ Modelling ways](#mod) 
+-  [👀 Overlap constraints](#ove)   
+-  [⬛ Black cells limit](#bla)
+-  [📝 Linking decision variables from the two modelling](#lin)
+
+# <a id="des"></a> ⚙️ Description of the problem
 
 Picross is a popular game of a similar nature to Sudoku.  
 It consists of a grid of square dimension $n \times n$ and of a list of integers for each row and each column.
 
-![Solution for the duck problem](./picross_duck.png){ width="180px"}
+![Solution for the duck problem](docs/picross_duck.png){ width="180px"}
 
-You can find all of this work in the document 🚀 [Python file - **resolution optmisation**](anomalies.ipynb).
+
 
 We will use the following notations:
 
@@ -17,6 +24,8 @@ We will use the following notations:
 - $a_{i,k} \in \{1, ..., n\}$ is the $k$-th integer of the list associated to row/column $i$.
 
 The goal is to darken some cells of the grid, such that in each row/column $i$ the number of successive black cells form the list $\{a_{i,1}, ..., a_{i,m_i}\}$.
+You can find all of this work in the document 🚀 [Python file - **resolution optmisation**](anomalies.ipynb).
+
 
 To popularize the notations, we can say:
 
@@ -28,7 +37,7 @@ We introduce:
 
 - $s_{i,k}$ :  in row $i$, **starting position** of $k$-th cluster
 
-# 1. Modelling ways
+# <a id="mod"></a> 1. 🛠️ Modelling ways
 
 ## 1.1 Binary variables
 
@@ -40,7 +49,7 @@ On each row, one decision variable exist for the first position of every “clus
 
 *Nota : the maximum number of “cluster” per row is limited to n/2 groups (since at least one blank cell need to exist between 2 clusters)*
 
-# 2. Overlap constraints
+# <a id="ove"></a> 2. 👀 Overlap constraints
 
 By using ‘Integer variable’ modelling (=(2)), we can state that the “no overlap constraint” correspond to constraint the $k$+1-th cluster ‘s starting position to be bigger than the k-th cluster’s last position with, at least, an additional blank cell between them.
 
@@ -63,7 +72,7 @@ with:
 * $a_{j,k}$ :  in column $j$, size of $k$-th cluster
 
 
-# 3. Black cells limit
+# <a id="bla"></a> 3. ⬛ Black cells limit
 
 By using ‘binary variable’ modelling (=(1)), we can state that amount of s“colored black cells limit” correspond to the sum of 1 available on row/column i, and cannot be more than the sum of coefficients from the corresponding row/column i. 
 
@@ -88,7 +97,7 @@ with:
 - $a_{j,k}$ :  in column $j$, **size** of $k$-th cluster
 - $m_j$ : **number of cluster** in column $j$;
 
-# 4. Linking decision variables from the two modelling
+# <a id="lin"></a> 4. 📝 Linking decision variables from the two modelling
 
 
 For each row i, for each cluster in that row i, the binary grid cell corresponding to the ‘integer model’ ‘starting point’ decision variables is equal to 1:
@@ -134,5 +143,5 @@ with:
 
 # 🎓 Authors
 
-Noémie Cohen
+Noémie Cohen  
 Mathieu Canto
