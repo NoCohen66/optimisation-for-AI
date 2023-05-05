@@ -13,9 +13,10 @@
 Picross is a popular game of a similar nature to Sudoku.  
 It consists of a grid of square dimension $n \times n$ and of a list of integers for each row and each column.
 
-![Solution for the duck problem](docs/picross_duck.png){ width="180px"}
-
-
+<br>
+<div align="center">
+    <img src="docs/picross_duck.png" width="40%" alt="picross" align="center" />
+</div>
 
 We will use the following notations:
 
