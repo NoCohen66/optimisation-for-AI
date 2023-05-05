@@ -93,6 +93,7 @@ def picross_solve(
             facile.constraint(sum(belong_j) == grid[i, j])
     
     '''
+    # This is a slower technique to solve this problem but we leave it as a comment for a better understanding
     # (SLOW) - CONSTRAINT 3 - linking model 1/model 2
     print('CONSTRAINT 3 - SLOW : Processing...')
     # for each row
